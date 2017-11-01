@@ -24,7 +24,7 @@ public class Chatbot
 		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = new ArrayList<String>();
 		this.currentTime = null;
-		this.questions = null;
+		this.questions = new String [10];
 		this.username = username;
 		this.content = null;
 		this.intro = null;
@@ -35,7 +35,7 @@ public class Chatbot
 		
 		buildVerbs();
 		buildTopics();
-		buildFollowups();
+//		buildFollowups();
 		buildQuestions();
 		buildShoppingList();
 		buildCuteAnimals();
@@ -49,16 +49,29 @@ public class Chatbot
 		verbs[3] = "am thinking about";
 	}
 	
-	public void buildMovieList()
+//	public void buildMovieList()
+//	{
+//		movieList.add("Inception");
+//		movieList.add("Spiderman");
+//		movieList.add("Hidden Figures");
+//		movieList.add("Big Hero 6");
+//		movieList.add("Rogue One");
+//		movieList.add("IT");
+//		movieList.add("Baby Driver");
+//	}
+	
+	private void buildTopics()
 	{
-		movieList.add("Inception");
-		movieList.add("Spiderman");
-		movieList.add("Hidden Figures");
-		movieList.add("Big Hero 6");
-		movieList.add("Rogue One");
-		movieList.add("IT");
-		movieList.add("Baby Driver");
+		topics[0] = "Animals";
+		topics[1] = "Food";
+		topics[2] = "School";
+		topics[3] = "Movies";
+		topics[4] = "Memes";
+		topics[5] = "Books";
+		topics[6] = "Shopping";
+				
 	}
+	
 	
 	public void buildShoppingList()
 	{
@@ -80,12 +93,21 @@ public class Chatbot
 		cuteAnimalMemes.add("pupper");
 		cuteAnimalMemes.add("otter");
 		cuteAnimalMemes.add("kittie");
-		cuteAnimalMemes.add("floofer");
+		cuteAnimalMemes.add("FLOOFER");
 	}
 	
 	public void buildQuestions()
 	{
-		
+		questions[0] = "What is your favorite food?";
+		questions[1] = "What is your favorite movie?";
+		questions[2] = "What is your favorite book?";
+		questions[3] = "Do you like memes?";
+		questions[4] = "How many siblings do you have?";
+		questions[5] = "What is your favorite season?";
+		questions[6] = "What is your favorite subject?";
+		questions[7] = "Do you like cars?";
+		questions[8] = "Do you like games?";
+		questions[9] = "Do you have a favorite video game?";
 	}
 	
 	public String processConversation(String input)
@@ -164,7 +186,13 @@ public class Chatbot
 
 	public boolean quitChecker(String exitString)
 	{
-		return false;
+		boolean validQuit = false;
+		
+		if (exitString!= "" && exitString != null && !exitString.equalsIgnoreCase("exit") && exitString.equalsIgnoreCase("quit"))
+		{
+			validQuit = true;
+		}
+		return validQuit;
 	}
 
 	public boolean keyboardMashChecker(String sample)

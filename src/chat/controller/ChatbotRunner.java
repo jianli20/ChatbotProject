@@ -8,8 +8,8 @@ public class ChatbotRunner
 	{
 		PopupDisplay test = new PopupDisplay();
 		ChatbotController app = new ChatbotController();
-				app.start();
-		test.displayText("hi");
+		app.start();
+	
 		
 	}
 }

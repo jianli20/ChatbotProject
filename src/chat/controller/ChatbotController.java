@@ -7,7 +7,7 @@ public class ChatbotController
 {
 	private Chatbot chatbot;
 	private PopupDisplay display;
-	private ChatFrame appFrame;
+
 	
 	public ChatbotController()
 	{
@@ -26,10 +26,10 @@ public class ChatbotController
 		}
 	}
 	
-	public String interactWithChatbot(String input)
-	{
+//	public interactWithChatbot(String input)
+//	{
 		
-	}
+//	}
 	
 	private String popupChat(String chat)
 	{
