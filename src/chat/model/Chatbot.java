@@ -20,21 +20,25 @@ public class Chatbot
 	
 	public Chatbot(String username)
 	{
-		this.movieList = null;
-		this.shoppingList = new Arraylist<String>();
-		this.cuteAnimalMemes = null;
+		this.movieList = new ArrayList<Movie>();
+		this.shoppingList = new ArrayList<String>();
+		this.cuteAnimalMemes = new ArrayList<String>();
 		this.currentTime = null;
 		this.questions = null;
 		this.username = username;
 		this.content = null;
 		this.intro = null;
 		this.currentTime = null;
-		this.topics = null;
+		this.topics = new String [7];
 		this.verbs = new String [4];
-		this.followUps = null;
+		this.followUps = new String [5];
 		
 		buildVerbs();
+		buildTopics();
+		buildFollowups();
+		buildQuestions();
 		buildShoppingList();
+		buildCuteAnimals();
 	}
 	
 	private void buildVerbs()
@@ -47,7 +51,13 @@ public class Chatbot
 	
 	public void buildMovieList()
 	{
-		
+		movieList.add("Inception");
+		movieList.add("Spiderman");
+		movieList.add("Hidden Figures");
+		movieList.add("Big Hero 6");
+		movieList.add("Rogue One");
+		movieList.add("IT");
+		movieList.add("Baby Driver");
 	}
 	
 	public void buildShoppingList()
@@ -55,13 +65,22 @@ public class Chatbot
 		shoppingList.add("snacks");
 		shoppingList.add("veggies");
 		shoppingList.add("protein");
-		shoppingList.add("slug bait");
-		shoppingList.add("gross things");
+		shoppingList.add("gummi frogs");
+		shoppingList.add("gummi bears");
+		shoppingList.add("gummi rings");
+		shoppingList.add("gummi sharks");
+		shoppingList.add("gummi soda");
+		shoppingList.add("soda");
+		shoppingList.add("chips");
+		shoppingList.add("coffee");
 	}
 	
 	public void buildCuteAnimals()
 	{
-		
+		cuteAnimalMemes.add("pupper");
+		cuteAnimalMemes.add("otter");
+		cuteAnimalMemes.add("kittie");
+		cuteAnimalMemes.add("floofer");
 	}
 	
 	public void buildQuestions()
@@ -72,6 +91,19 @@ public class Chatbot
 	public String processConversation(String input)
 	{
 		return null;
+	}
+	
+	private String buildChatbotResponse()
+	{
+		String response = "I ";
+		int random = (int) (Math.random() * verbs.length);
+		response += verbs[random];
+		
+		random = (int) (Math.random() * topics.length);
+		response += " " + topics[random] + ".\n";
+		
+		random = (int) (Math.random() * questions.length);
+		response += questions[random];
 	}
 	
 	public boolean lengthChecker(String input)
