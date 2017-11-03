@@ -60,34 +60,44 @@ public class Movie
 
 	public void setTitle(String title)
 	{
+		this.title = title;
 	}
 
 	public void setGenre(String genre)
 	{
+		this.genre = genre;
 	}
 
 	public void setRatingMPAA(String ratingMPAA)
 	{
+		this.ratingMPAA = ratingMPAA;
 	}
 
 	public void setReview(String review)
 	{
+		this.review = review;
 	}
 
 	public void setLength(int length)
 	{
+		this.length = length;
 	}
 
 	public void setReleaseDate(LocalDate releaseDate)
 	{
+		this.releaseDate = releaseDate;
 	}
 
 	public void setStarScore(double starScore)
 	{
+		this.starScore = starScore;
 	}
 	
 	public String toString()
 	{
-		return null;
+		String description = "The movie is name is " + title + "with the genre " + genre + ". It got a review of " + review + " and it's length is " + length + ". It was released on " + releaseDate + "and rated " + starScore + "out of 5 stars.";
+				
+		 
+		 return description;
 	}
 }
