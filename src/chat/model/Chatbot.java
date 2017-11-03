@@ -78,11 +78,11 @@ public class Chatbot
 		shoppingList.add("snacks");
 		shoppingList.add("veggies");
 		shoppingList.add("protein");
-		shoppingList.add("gummi frogs");
-		shoppingList.add("gummi bears");
-		shoppingList.add("gummi rings");
-		shoppingList.add("gummi sharks");
-		shoppingList.add("gummi soda");
+		shoppingList.add("salad");
+		shoppingList.add("crackers");
+		shoppingList.add("jelly");
+		shoppingList.add("juice");
+		shoppingList.add("gummi");
 		shoppingList.add("soda");
 		shoppingList.add("chips");
 		shoppingList.add("coffee");
@@ -169,10 +169,20 @@ public class Chatbot
 		return false;
 	}
 	
-	public boolean shoppingListChecker(String shoppingItem)
+	public boolean shoppingListChecker(String shoppingItem) // Checks shopping item to see if it contains something from list
 	{
-		return false;
+		boolean validList = false;
+		
+		for(int index = 0; index <11; index ++)
+		{
+			if(shoppingItem.contains(shoppingList.get(index)))
+			{
+				validList = true;
+			}
+		}
+		return validList;
 	}
+	
 	
 	public boolean movieTitleChecker(String title)
 	{
