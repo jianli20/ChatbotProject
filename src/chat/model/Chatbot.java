@@ -110,7 +110,7 @@ public class Chatbot
 		questions[9] = "Do you have a favorite video game?";
 	}
 	
-	public String processConversation(String input)
+	public String processConversation(String input) // Repeats user input
 	{
 		String chatbotResponse = "";
 		chatbotResponse += "You said:" + "\n" + input + "\n";
@@ -119,7 +119,7 @@ public class Chatbot
 		
 		return chatbotResponse;
 	}
-	private String buildChatbotResponse()
+	private String buildChatbotResponse() //Chatbot "Responses" to the user response by adding "thoughts" to it
 	{
 		String response = "I ";
 		int random = (int) (Math.random() * verbs.length);
@@ -134,7 +134,7 @@ public class Chatbot
 		return response;
 	}
 	
-	public boolean lengthChecker(String input)
+	public boolean lengthChecker(String input) //Makes sure the length of the user input is longer than 2
 	{
 		boolean validLength = false;
 		
@@ -194,7 +194,7 @@ public class Chatbot
 		return false;
 	}
 
-	public boolean quitChecker(String exitString)
+	public boolean quitChecker(String exitString) //Makes sure user input isn't "quit"
 	{
 		boolean validQuit = false;
 		
