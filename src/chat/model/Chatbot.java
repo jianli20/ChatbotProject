@@ -213,8 +213,12 @@ public class Chatbot
 
 	public boolean keyboardMashChecker(String sample)
 	{
-		boolean validMash = true;
-		if (sample == "S.D.F." || sample == "derf")
+		boolean validMash = false;
+		if (sample.contains("sdf") || sample.contains("SDF") || sample.contains("dfg") || sample.contains("cvb") || sample.contains(",./") || sample.contains("kjh") || sample.contains("DFG") || sample.contains("CVB") || sample.contains("KJH"))
+		{
+			validMash = true;
+		}
+		else if (sample.contains("S.D.F.") || sample.contains("derf"))
 		{
 			validMash = false;
 		}
