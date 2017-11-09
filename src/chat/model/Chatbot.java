@@ -110,6 +110,11 @@ public class Chatbot
 		questions[9] = "Do you have a favorite video game?";
 	}
 	
+	/**
+	 * Method takes user input, repeats input back to them, and adds an additional "response" relating to input.
+	 * @param The response that the user gives as a String.
+	 * @return Returns the combined input from user and response from chatbot.
+	 */
 	public String processConversation(String input) // Repeats user input
 	{
 		String chatbotResponse = "";
@@ -119,6 +124,10 @@ public class Chatbot
 		
 		return chatbotResponse;
 	}
+	/**
+	 * Method to make Chatbot response by randomly selecting parts of sentences to produce a response
+	 * @return returns the generated random response produced, 
+	 */
 	private String buildChatbotResponse() //Chatbot "Responses" to the user response by adding "thoughts" to it
 	{
 		String response = "I ";
@@ -158,7 +167,12 @@ public class Chatbot
 	
 	public boolean htmlTagChecker(String input)
 	{
-		return false;
+		boolean validTag = false;
+		if(!input.equals("<>") && !input.equals("< >") && !input.equals("<B>  ") && !input.equals("<A HREF> </a>") && input.equals("<B>  </B>") || input.equals("<I> sdadas </i>") || input.equals("<P>") || input.equals("<A HREF=\"sdfs.html\"> </a>") )
+		{
+			validTag = true;
+		}
+		return validTag;
 	}
 	
 	public boolean userNameChecker(String input)
@@ -174,12 +188,22 @@ public class Chatbot
 	
 	public boolean contentChecker(String contentCheck)
 	{
-		return false;
+		boolean validCheck = false;
+//		if(validCheck.equals(newContent))
+//		{
+//			validCheck = true;
+//		}
+		return validCheck;
 	}
 	
 	public boolean cuteAnimalMemeChecker(String input)
 	{
-		return false;
+		boolean validMeme = false;
+		if (input != "pepe" && input.equals("pupper") || input.equals("kittie") || input.equals("otter"))
+		{
+			validMeme = true;
+		}
+		return validMeme;
 	}
 	
 	public boolean shoppingListChecker(String shoppingItem) // Checks shopping item to see if it contains something from list
