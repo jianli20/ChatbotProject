@@ -23,6 +23,9 @@ public class ChatPanel extends JPanel
 	{
 		super();
 		this.appController = appController;
+		
+		//Initialize GUI Data members
+		chatButton = new JButton("Chat");
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
@@ -36,13 +39,11 @@ public class ChatPanel extends JPanel
 	{
 		this.setBackground(Color.DARK_GRAY);
 		this.setLayout(appLayout);
-		
-		//Initialize GUI Data members
-		chatButton = new JButton("Chat");
-
 		this.add(chatButton);
 		this.add(inputField);
 		this.add(chatArea);
+		chatArea.setEnabled(false);
+		chatArea.setEditable(false);
 	}
 	
 	private void setupLayout()
@@ -54,7 +55,6 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);
 		appLayout.putConstraint(SpringLayout.SOUTH, chatButton, -36, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, chatArea);
-		this.add(chatButton);
 	}
 	
 	private void setupListeners()

@@ -23,5 +23,8 @@ public class ChatFrame extends JFrame
 		this.setVisible(true);
 	}
 	
-	
+	public ChatbotController getAppController()
+	{
+		return appController;
+	}
 }
