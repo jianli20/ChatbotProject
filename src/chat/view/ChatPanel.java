@@ -16,7 +16,7 @@ public class ChatPanel extends JPanel
 	private ChatbotController appController;
 	private JButton chatButton;
 	private JTextArea chatArea;
-	private JTextField inputField;
+	private JText inputField;
 	private SpringLayout appLayout;	
 	
 	public ChatPanel(ChatbotController appController)
@@ -29,7 +29,7 @@ public class ChatPanel extends JPanel
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
-		
+	
 		setupPanel();
 		setupLayout();
 		setupListeners();
@@ -46,6 +46,9 @@ public class ChatPanel extends JPanel
 	
 	private void setupLayout()
 	{
+		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 20, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, chatArea, 25, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, chatArea, -25, SpringLayout.EAST, this);
 		
 	}
 	
