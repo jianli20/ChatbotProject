@@ -13,5 +13,5 @@ public class ChatPanel extends JPanel
 {
 	private ChatAppController appController;
 	private JButton firstButton;
-	private SpringLayout appLayout;
+	private SpringLayout appLayout;	
 }
