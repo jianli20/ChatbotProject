@@ -11,7 +11,36 @@ import java.awt.event.ActionListener;
 
 public class ChatPanel extends JPanel
 {
-	private ChatAppController appController;
+	private ChatbotController appController;
 	private JButton firstButton;
 	private SpringLayout appLayout;	
+	
+	public ChatPanel(ChatbotController appController)
+	{
+		super();
+		this.appController = appController;
+		firstButton = new JButton("Click on the button");
+		appLayout = new SpringLayout();
+		
+		setupPanel();
+		setupLayout();
+		setupListeners();
+	}
+	
+	private void setupPanel()
+	{
+		this.setBackground(Color.DARK_GRAY);
+		this.setLayout(appLayout);
+		this.add(firstButton)
+	}
+	
+	private void setupLayout()
+	{
+		
+	}
+	
+	private void setupListeners()
+	{
+		
+	}
 }
