@@ -15,8 +15,8 @@ public class ChatPanel extends JPanel
 {
 	private ChatbotController appController;
 	private JButton chatButton;
-	private JTextField chatArea;
-	private JTextArea inputField;
+	private JTextArea chatArea;
+	private JTextField inputField;
 	private SpringLayout appLayout;	
 	
 	public ChatPanel(ChatbotController appController)
