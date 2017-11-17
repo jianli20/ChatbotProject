@@ -19,12 +19,15 @@ public class ChatPanel extends JPanel
 	private JTextField inputField;
 	private SpringLayout appLayout;	
 	
+	/**
+	 * Constructor, initializes the GUI data members
+	 */
+	
 	public ChatPanel(ChatbotController appController)
 	{
 		super();
 		this.appController = appController;
 		
-		//Initialize GUI Data members
 		chatButton = new JButton("Chat");
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
@@ -34,6 +37,10 @@ public class ChatPanel extends JPanel
 		setupLayout();
 		setupListeners();
 	}
+	
+	/**
+	 * Sets up the panel with specific parameters, and proper contents
+	 */
 	
 	private void setupPanel()
 	{
@@ -46,6 +53,10 @@ public class ChatPanel extends JPanel
 		chatArea.setEditable(false);
 	}
 	
+	/**
+	 * Sets up the placement of the content pieces in the GUI
+	 */
+	
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 20, SpringLayout.NORTH, this);
@@ -57,11 +68,18 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, chatArea);
 	}
 	
+	/**
+	 * Sets up the actions with the objects in the panel
+	 */
+	
 	private void setupListeners()
 	{
 		chatButton.addActionListener(new ActionListener()
 			{
-				public void actionPerformed(ActionEvent click)
-			}
-	});
+				public void actionPerformed(ActionEvent click) 
+				{
+					
+				}
+			});
+	}
 }
