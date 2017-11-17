@@ -18,6 +18,11 @@ public class Chatbot
 	private String intro;
 	private LocalTime currentTime;
 	
+	/**
+	 * Constructor, initializes data members
+	 * @param username
+	 */
+	
 	public Chatbot(String username)
 	{
 		this.movieList = new ArrayList<Movie>();
@@ -40,6 +45,9 @@ public class Chatbot
 		buildShoppingList();
 		buildCuteAnimals();
 	}
+	/**
+	 * Fills the arraylist with verbs
+	 */
 	
 	private void buildVerbs()
 	{
@@ -60,6 +68,10 @@ public class Chatbot
 //		movieList.add("Baby Driver");
 //	}
 	
+	/**
+	 * Fills the arraylist with topics
+	 */
+	
 	private void buildTopics()
 	{
 		topics[0] = "Animals";
@@ -72,6 +84,9 @@ public class Chatbot
 				
 	}
 	
+	/**
+	 * Fills the arraylist with shopping items
+	 */
 	
 	public void buildShoppingList()
 	{
@@ -88,6 +103,10 @@ public class Chatbot
 		shoppingList.add("coffee");
 	}
 	
+	/**
+	 * Fills the arraylist with animals
+	 */
+	
 	public void buildCuteAnimals()
 	{
 		cuteAnimalMemes.add("pupper");
@@ -95,6 +114,10 @@ public class Chatbot
 		cuteAnimalMemes.add("kittie");
 		cuteAnimalMemes.add("FLOOFER");
 	}
+	
+	/**
+	 * Fills the arraylist with questions
+	 */
 	
 	public void buildQuestions()
 	{
@@ -150,7 +173,13 @@ public class Chatbot
 		return response;
 	}
 	
-	public boolean lengthChecker(String input) //Makes sure the length of the user input is longer than 2
+	/**
+	 * Makes sure the length of the user input is longer than 2
+	 * @param input
+	 * @return if valid, returns true, if not, returns false
+	 */
+	
+	public boolean lengthChecker(String input) 
 	{
 		boolean validLength = false;
 		
@@ -165,6 +194,12 @@ public class Chatbot
 		return validLength;
 	}
 	
+	/**
+	 * Checks if the htmltag is valid
+	 * @param input
+	 * @return if valid, returns true, if not, returns false
+	 */
+	
 	public boolean htmlTagChecker(String input)
 	{
 		boolean validTag = false;
@@ -174,6 +209,12 @@ public class Chatbot
 		}
 		return validTag;
 	}
+	
+	/**
+	 * Checks the validity of username input
+	 * @param input
+	 * @return if valid, returns true, if not, returns false
+	 */
 	
 	public boolean userNameChecker(String input)
 	{
@@ -186,6 +227,14 @@ public class Chatbot
 		return validUser;
 	}
 	
+	
+	
+	/**
+	 * content variable anywhere in the supplied text
+	 * @param contentCheck
+	 * @return if valid, returns true, if not, returns false
+	 */
+	
 	public boolean contentChecker(String contentCheck)
 	{
 		boolean validCheck = false;
@@ -196,6 +245,12 @@ public class Chatbot
 		return validCheck;
 	}
 	
+	/**
+	 * Checks input to see if doesn't contain pepe and contains pupper, kittie, and otter
+	 * @param input
+	 * @return if valid, returns true, if not, returns false
+	 */
+	
 	public boolean cuteAnimalMemeChecker(String input)
 	{
 		boolean validMeme = false;
@@ -205,6 +260,12 @@ public class Chatbot
 		}
 		return validMeme;
 	}
+	
+	/**
+	 * Checks the parameters of shoppinglistChecker
+	 * @param Cant be less than 11
+	 * @return If valid, returns true, if not, returns false
+	 */
 	
 	public boolean shoppingListChecker(String shoppingItem) // Checks shopping item to see if it contains something from list
 	{
@@ -231,6 +292,12 @@ public class Chatbot
 		return false;
 	}
 
+	/**
+	 * Makes sure user input isn't quit
+	 * @param exitString
+	 * @return if valid, returns true, if not, returns false
+	 */
+	
 	public boolean quitChecker(String exitString) //Makes sure user input isn't "quit"
 	{
 		boolean validQuit = false;
@@ -242,6 +309,12 @@ public class Chatbot
 		return validQuit;
 	}
 
+	/**
+	 * Checks to see that there isn't keyboard mash
+	 * @param sample
+	 * @return if Valid, returns true, if not, returns false
+	 */
+	
 	public boolean keyboardMashChecker(String sample)
 	{
 		boolean validMash = false;

@@ -7,6 +7,12 @@ public class ChatFrame extends JFrame
 {
 	private ChatbotController appController;
 	private ChatPanel appPanel;
+	
+	/**
+	 * Constructor, initializes the data members
+	 * @param appController
+	 */
+	
 	public ChatFrame(ChatbotController appController)
 	{
 		super();
@@ -14,6 +20,11 @@ public class ChatFrame extends JFrame
 		appPanel = new ChatPanel(appController);
 		setupFrame();
 	}
+	
+	/**
+	 * Sets up the frame with established parameters
+	 */
+	
 	private void setupFrame()
 	{
 		this.setContentPane(appPanel);
@@ -22,6 +33,10 @@ public class ChatFrame extends JFrame
 		this.setSize(600, 600);
 		this.setVisible(true);
 	}
+	
+	/**
+	 * Gets app controller and returns it
+	 */
 	
 	public ChatbotController getAppController()
 	{

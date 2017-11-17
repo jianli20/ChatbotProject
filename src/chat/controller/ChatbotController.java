@@ -10,7 +10,9 @@ public class ChatbotController
 	private PopupDisplay display;
 	private ChatFrame appframe;
 
-	
+	/**
+	 * Constructor, assigns data members to methods
+	 */
 	public ChatbotController()
 	{
 		chatbot = new Chatbot("Squarebot");
@@ -18,6 +20,9 @@ public class ChatbotController
 		appframe = new ChatFrame(this);
 	}
 	
+	/**
+	 * Start method
+	 */
 	public void start()
 	{
 		String response = display.collectResponse("What do you want to talk about?");
@@ -33,7 +38,11 @@ public class ChatbotController
 //	{
 		
 //	}
-	
+	/**
+	 * Makes a popup that allows the user to respond
+	 * @param chat
+	 * @return Returns response with an processed comment
+	 */
 	private String popupChat(String chat)
 	{
 		String chatbotSays = "";
