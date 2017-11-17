@@ -14,7 +14,5 @@ public class ChatbotRunner
 	{
 		ChatbotController app = new ChatbotController();
 		app.start();
-	
-		
 	}
 }

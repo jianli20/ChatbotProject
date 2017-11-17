@@ -138,7 +138,7 @@ public class Chatbot
 	 * @param The response that the user gives as a String.
 	 * @return Returns the combined input from user and response from chatbot.
 	 */
-	public String processConversation(String input) // Repeats user input
+	public String processConversation(String input) 
 	{
 		String chatbotResponse = "";
 		chatbotResponse += "You said:" + "\n" + input + "\n";
@@ -284,12 +284,24 @@ public class Chatbot
 	
 	public boolean movieTitleChecker(String title)
 	{
-		return false;
+		boolean validTitle = false;
+		
+		if(title != "" && title.equals("Spiderman") || title.equals("Hidden Figures"))
+		{
+			validTitle = true;
+		}
+		return validTitle;
 	}
 	
 	public boolean movieGenreChecker(String genre)
 	{
-		return false;
+		boolean validGenre = false;
+		
+		if(genre != "" && genre.equals("Documentary") || genre.equals("Thriller"))
+		{
+			validGenre = true;
+		}
+		return validGenre;
 	}
 
 	/**
