@@ -25,7 +25,7 @@ public class ChatbotController
 	 */
 	public void start()
 	{
-		String response = display.collectResponse("What do you want to talk about?");
+	//	String response = display.collectResponse("What do you want to talk about?");
 		
 //		while (chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
 //		{
@@ -34,10 +34,26 @@ public class ChatbotController
 //		}
 	}
 	
-//	public interactWithChatbot(String input)
-//	{
+	public String interactWithChatbot(String input)
+	{
+		String chatbotSays = "";
 		
-//	}
+		if(chatbot.quitChecker(input))
+		{
+			close();
+		}
+		
+		chatbotSays += chatbot.processConversation(input);
+		
+		return chatbotSays;
+	}
+	
+	private void close()
+	{
+		display.displayText("Goodbye");
+		System.exit(0);
+	}
+	
 	/**
 	 * Makes a popup that allows the user to respond
 	 * @param chat
