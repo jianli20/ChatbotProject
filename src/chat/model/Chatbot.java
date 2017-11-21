@@ -31,7 +31,7 @@ public class Chatbot
 		this.currentTime = null;
 		this.questions = new String [10];
 		this.username = username;
-		this.content = null;
+		this.content = "stuff and words";
 		this.intro = null;
 		this.currentTime = null;
 		this.topics = new String [7];
@@ -238,10 +238,10 @@ public class Chatbot
 	public boolean contentChecker(String contentCheck)
 	{
 		boolean validCheck = false;
-//		if(validCheck.equals(newContent))
-//		{
-//			validCheck = true;
-//		}
+		if(contentCheck.contains(content))
+		{
+			validCheck = true;
+		}
 		return validCheck;
 	}
 	
