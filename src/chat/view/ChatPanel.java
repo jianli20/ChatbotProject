@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.SpringLayout;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +20,7 @@ public class ChatPanel extends JPanel
 	private JTextField inputField;
 	private SpringLayout appLayout;
 	private JButton checkerButton;
+	private JLabel infoLabel;
 	
 	/**
 	 * Constructor, initializes the GUI data members
@@ -34,6 +36,8 @@ public class ChatPanel extends JPanel
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
 		checkerButton = new JButton("Check");
+		infoLabel = new JLabel("Type to chat with the chatbot");
+		
 
 		setupPanel();
 		setupLayout();
@@ -52,6 +56,7 @@ public class ChatPanel extends JPanel
 		this.add(inputField);
 		this.add(chatArea);
 		this.add(checkerButton);
+		this.add(infoLabel);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
 	}
@@ -71,7 +76,8 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, chatArea);
 		appLayout.putConstraint(SpringLayout.WEST, checkerButton, 0, SpringLayout.WEST, chatButton);
 		appLayout.putConstraint(SpringLayout.SOUTH, checkerButton, -5, SpringLayout.NORTH, chatButton);
-		
+		appLayout.putConstraint(SpringLayout.WEST, infoLabel, 0, SpringLayout.WEST, inputField);
+		appLayout.putConstraint(SpringLayout.SOUTH, infoLabel, -6, SpringLayout.NORTH, inputField);
 	}
 	
 	/**
@@ -94,7 +100,10 @@ public class ChatPanel extends JPanel
 			{
 				public void actionPerformed(ActionEvent click)
 				{
-					
+						String userText = inputField.getText();
+						String displayText = appController.useCheckers(userText);
+						chatArea.append(displayText);
+						inputField.setText("");
 				}
 			});
 	}
