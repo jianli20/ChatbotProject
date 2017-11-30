@@ -220,15 +220,33 @@ public class Chatbot
 	public boolean htmlTagChecker(String input)
 	{
 		boolean validTag = false;
+		if(input == null || !input.contains("<"))
+		{
+		return validTag;
+		}
+		int firstOpen = input.indexOf("<");
+		int firstClose = input.indexOf(">");
+		int secondOpen = -9;
+		int secondClose = -9;
+		String tagText = "";
 		
-		if(!input.contains("<") && !input.contains(">"))
+		//Check bad tags
+		if(input.contains("<>") || input.indexOf("< >") > -1)
 		{
 			validTag = false;
 		}
-		else if(input.contains("<>"))
-		return validTag;
-	}
-	
+		//Check singleton
+		if(input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>"))
+		{
+			validTag = true;
+		}
+		//Check others
+		else if(firstClose > firstOpen)
+		{
+			//Others
+			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
+			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
+		}
 	/**
 	 * Checks the validity of username input
 	 * @param input
