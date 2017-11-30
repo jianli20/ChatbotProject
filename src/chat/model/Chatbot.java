@@ -220,10 +220,12 @@ public class Chatbot
 	public boolean htmlTagChecker(String input)
 	{
 		boolean validTag = false;
-		if(!input.equals("<>") && !input.equals("< >") && !input.equals("<B>  ") && !input.equals("<A HREF> </a>") && input.equals("<B>  </B>") || input.equals("<I> sdadas </i>") || input.equals("<P>") || input.equals("<A HREF=\"sdfs.html\"> </a>") )
+		
+		if(!input.contains("<") && !input.contains(">"))
 		{
-			validTag = true;
+			validTag = false;
 		}
+		else if(input.contains("<>"))
 		return validTag;
 	}
 	
