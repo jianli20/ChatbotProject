@@ -28,12 +28,11 @@ public class Chatbot
 		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = new ArrayList<String>();
-		this.currentTime = null;
 		this.questions = new String [10];
 		this.username = username;
 		this.content = "stuff and words";
 		this.intro = null;
-		this.currentTime = null;
+		this.currentTime = LocalTime.now();
 		this.topics = new String [7];
 		this.verbs = new String [4];
 		this.followUps = new String [5];
@@ -121,7 +120,7 @@ public class Chatbot
 	
 	public void buildQuestions()
 	{
-		questions[0] = "What is your favorite food?";
+		questions[0] = "What is your name?";
 		questions[1] = "What is your favorite movie?";
 		questions[2] = "What is your favorite book?";
 		questions[3] = "Do you like memes?";
@@ -141,6 +140,8 @@ public class Chatbot
 	public String processConversation(String input) 
 	{
 		String chatbotResponse = "";
+		currentTime = LocalTime.now();
+		chatbotResponse += currentTime.getHour() + ":" + currentTime.getMinute() + " ";
 		chatbotResponse += "You said:" + "\n" + input + "\n";
 		
 		chatbotResponse += buildChatbotResponse();
@@ -217,36 +218,39 @@ public class Chatbot
 	 * @return if valid, returns true, if not, returns false
 	 */
 	
-//	public boolean htmlTagChecker(String input)
-//	{
-//		boolean validTag = false;
-//		if(input == null || !input.contains("<"))
-//		{
-//		return validTag;
-//		}
-//		int firstOpen = input.indexOf("<");
-//		int firstClose = input.indexOf(">");
-//		int secondOpen = -9;
-//		int secondClose = -9;
-//		String tagText = "";
-//		
-//		//Check bad tags
-//		if(input.contains("<>") || input.indexOf("< >") > -1)
-//		{
-//			validTag = false;
-//		}
-//		//Check singleton
-//		if(input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>"))
-//		{
-//			validTag = true;
-//		}
-//		//Check others
-//		else if(firstClose > firstOpen)
-//		{
-//			//Others
-//			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
-//			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
-//		}
+	public boolean htmlTagChecker(String input)
+	{
+		boolean validTag = false;
+		if(input == null || !input.contains("<"))
+		{
+		return validTag;
+		}
+		int firstOpen = input.indexOf("<");
+		int firstClose = input.indexOf(">");
+		int secondOpen = -9;
+		int secondClose = -9;
+		String tagText = "";
+		
+		//Check bad tags
+		if(input.contains("<>") || input.indexOf("< >") > -1)
+		{
+			validTag = false;
+		}
+		//Check singleton
+		if(input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>"))
+		{
+			validTag = true;
+		}
+		//Check others
+		else if(firstClose > firstOpen)
+		{
+			//Others
+			tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
+			secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
+		}
+		
+		return validTag;
+	}
 	/**
 	 * Checks the validity of username input
 	 * @param input
